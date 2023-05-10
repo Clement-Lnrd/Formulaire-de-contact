@@ -1,0 +1,89 @@
+<!--
+--- CLEMENT LIENARD PROJECT, 2023
+--- Formulaire-de-contact
+--- index.html
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire de contact</title>
+    <!-- Relier la feuille de style -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Importer jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+</head>
+
+<body>
+    <!-- Image de fond du formulaire -->
+    <div class="form">
+        <img id="background"
+             src="images/background.svg"
+             alt="Fond du formulaire"
+             height="633px"
+             width="503px"/>
+
+        <!-- Numéro de téléphone et tire du formulaire -->
+        <div class="ubuntu-bold">
+            <h1 id="tel-number">03 28 76 55 90</h1>
+            <h2 class="white" id="question">Un besoin, une demande ?</h2>
+        </div>
+
+        <!-- Formulaire de contact -->
+        <form action="index.php" method="POST" class="contact-form" id="contact-form">
+            <div class="contact-form">
+                <label for="company"></label>
+                <input type="text" name="company" class="basic-input" id="company" placeholder="Entreprise *" required>
+            </div>
+            <div class="contact-form">
+                <label for="name"></label>
+                <input type="text" name="name" class="basic-input" id="name" placeholder="Nom *" required>
+            </div>
+            <div class="contact-form">
+                <label for="firstname"></label>
+                <input type="text" name="firstname" class="basic-input" id="firstname" placeholder="Prénom *" required>
+            </div>
+            <div class="contact-form">
+                <label for="function"></label>
+                <input type="text" name="function" class="basic-input" id="function" placeholder="Fonction">
+            </div>
+            <div class="contact-form">
+                <label for="phone"></label>
+                <input type="text" name="phone" class="basic-input" id="phone" placeholder="Tél. *" required>
+            </div>
+            <div class="contact-form">
+                <label for="email"></label>
+                <input type="text" name="email" class="basic-input" id="email" placeholder="Mail *" required>
+            </div>
+            <div class="contact-form">
+                <label for="request" class="white">Votre demande concerne *</label>
+                <select id="request" onchange="removeBlankOption()" required>
+                    <option value=""></option>
+                    <option value="redesign">Refonte de site</option>
+                    <option value="takeover">Reprise de site</option>
+                    <option value="migration">Migration</option>
+                    <option value="optimizations">Optimisations</option>
+                    <option value="specific">Développement spécifique</option>
+                </select>
+
+                <!-- Script qui supprime la première option du select si elle est déselectionnée -->
+                <script src="js/request.js"></script>
+            </div>
+            <div class="contact-form">
+                <label for="requirement" class="white">Votre besoin (objectifs/date/lieu) *</label>
+                <textarea name="requirement" id="requirement" required></textarea>
+            </div>
+            <div class="contact-form">
+                <input type="submit" class="ubuntu-bold" id="submit" value="GO !">
+            </div>
+        </form>
+
+        <!-- Script qui vérifie que le numéro de téléphone et l'adresse mail soient valides.
+        Si c'est le cas, le formulaire est envoyé. Sinon, une alerte est affichée et l'utilisateur doit corriger ses erreurs. -->
+        <script src="js/phoneAndMail.js"></script>
+    </div>
+</body>
+
+</html>
